@@ -25,11 +25,7 @@ export default function MobileHeader(props) {
       <nav className="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
         style={{ display: `${styled}` }} id="mySidebar">
         <a href="#!" onClick={handleClose} className="w3-bar-item w3-button w3-large">Close</a>
-        <a href="#about" onClick={handleClose} className="w3-bar-item w3-button">About</a>
-        <a href="#team" onClick={handleClose} className="w3-bar-item w3-button">Team</a>
-        <a href="#work" onClick={handleClose} className="w3-bar-item w3-button">Work</a>
-        <a href="#pricing" onClick={handleClose} className="w3-bar-item w3-button">Pricing</a>
-        <a href="#contact" onClick={handleClose} className="w3-bar-item w3-button">Contact</a>
+        <a href="#!" onClick={props.toggleLogin} className="w3-bar-item w3-button">Login</a>
       </nav>
     </>
   );

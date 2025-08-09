@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import './assets/css/login.css';
 
 export default function Login(props) {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   function handleLogin(e) {
     e.preventDefault()
-    // Code to handle login goes here
     //props.toggle()
   }
 
@@ -25,8 +24,8 @@ export default function Login(props) {
             <input name="password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
           </label>
           <button type="submit">Login</button>
+          <button type="button" onClick={props.toggle}>Close</button>
         </form>
-        <button onClick={props.toggle}>Close</button>
       </div>
     </div>
   )
