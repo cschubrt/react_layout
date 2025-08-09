@@ -3,21 +3,19 @@ import Layout from './layout/Layout';
 import Login from './Login';
 
 
-function App() {
-  const [seen, setSeen] = useState(false);
+export default function App() {
+  const [showLogin, setShowLogin] = useState(false);
 
-    function togglePop () {
-        setSeen(!seen);
-    };
+  function toggleLogin() {
+    setShowLogin(!showLogin);
+  };
 
   return (
-    <Layout>
+    <Layout toggleLogin={toggleLogin}>
       <div>
-        <button onClick={togglePop}>Login</button>
-        {seen ? <Login toggle={togglePop} /> : null}
+        <button onClick={toggleLogin}>Login</button>
+        {showLogin ? <Login toggle={toggleLogin} /> : null}
       </div>
     </Layout>
   )
 }
-
-export default App
