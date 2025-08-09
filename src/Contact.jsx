@@ -3,17 +3,22 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import './assets/css/login.css';
 
-export default function Login(props) {
+export default function Contact(props) {
   return (
     <div className="popup">
       <div className="popup-inner">
         <Formik
-          initialValues={{ email: '', password: '' }}
+          initialValues={{ name: '', email: '', comment: '' }}
           validationSchema={Yup.object({
-            email: Yup.string().email('Invalid email address').required('Email is Required'),
-            password: Yup.string()
-              .max(20, 'Must be 20 characters or less')
-              .required('Password is Required'),
+            name: Yup.string()
+              .max(50, 'Must be 50 characters or less')
+              .required('Name is Required'),
+            email: Yup.string()
+              .email('Invalid email address')
+              .required('Email is Required'),
+            comment: Yup.string()
+              .max(1000, 'Must be 1000 characters or less')
+              .required('Comment is Required'),
           })}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -23,13 +28,13 @@ export default function Login(props) {
           }}
         >
           <Form>
+            <label htmlFor="name">Your Name</label>
+            <Field id="name" name="name" type="text" />
+            <div><ErrorMessage name="name" /></div>
+
             <label htmlFor="email">Email Address</label>
             <Field id="email" name="email" type="email" />
             <div><ErrorMessage name="email" /></div>
-
-            <label htmlFor="password">Password</label>
-            <Field name="password" type="text" />
-            <div><ErrorMessage name="password" /></div>
 
             <button type="submit">Submit</button>
             <button type="button" onClick={props.toggle}>Close</button>
