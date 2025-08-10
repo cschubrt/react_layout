@@ -22,13 +22,26 @@
   min-width: 230px;
 }
 
+.popup-inner h2 {
+  margin: 0;
+}
+
 .popup-inner div {
   color: #801c1c;
   padding-left: 5px;
 }
 
+.popup-inner textarea {
+  width: 100%;
+  margin: 0;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
 .popup-inner label {
   display: block;
+  font-weight: 500;
 }
 
 .popup-inner input {

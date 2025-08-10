@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Layout from './layout/Layout';
-import Login from './Login';
-import Contact from './Contact';
+import Login from './forms/Login';
+import Contact from './forms/Contact';
 
 
 export default function App() {
@@ -17,12 +17,12 @@ export default function App() {
   };
 
   return (
-    <Layout toggleLogin={toggleLogin}>
+    <Layout toggleLogin={toggleLogin} toggleContact={toggleContact}>
       <div>
         <button onClick={toggleLogin}>Login</button>
         <button onClick={toggleContact}>Contact</button>
         {showLogin ? <Login toggle={toggleLogin} /> : null}
-        {showLogin ? <Login toggle={toggleContact} /> : null}
+        {showContact ? <Contact toggle={toggleContact} /> : null}
       </div>
     </Layout>
   )

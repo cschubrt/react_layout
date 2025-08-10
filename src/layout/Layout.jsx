@@ -5,7 +5,7 @@ import '../assets/css/stylesV1.css';
 export default function Layout(props) {
   return (
     <>
-      <MobileHeader toggleLogin={props.toggleLogin} />
+      <MobileHeader toggleLogin={props.toggleLogin} toggleContact={props.toggleContact} />
       <div style={{ margin: '65px 10px 10px 10px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         {props.children}
       </div>

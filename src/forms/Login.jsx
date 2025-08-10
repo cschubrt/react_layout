@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import './assets/css/login.css';
+import '../assets/css/popup.css';
 
 export default function Login(props) {
+  const { toggle } = props;
+  const divRef = useRef(null);
+
+  //MOVE TO COMPONENT
+  //attach listener for click outside of our dynamic div
+  useEffect(() => {
+    document.addEventListener('mousedown', handleBoundary);
+    return () => {
+      //cleanup
+      document.removeEventListener('mousedown', handleBoundary);
+    }
+  }, []);
+
+  const handleBoundary = (e) => {
+    if (divRef.current && !divRef.current.contains(e.target)) {
+      //clicked outside the div
+      console.log('Clicked outside the div!');
+      toggle();
+    }
+  };
+
   return (
     <div className="popup">
-      <div className="popup-inner">
+      <div ref={divRef} className="popup-inner">
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={Yup.object({
@@ -23,16 +44,18 @@ export default function Login(props) {
           }}
         >
           <Form>
+            <h2>Login CS</h2>
+            <hr />
             <label htmlFor="email">Email Address</label>
             <Field id="email" name="email" type="email" />
             <div><ErrorMessage name="email" /></div>
 
             <label htmlFor="password">Password</label>
-            <Field name="password" type="text" />
+            <Field id="password" name="password" type="text" />
             <div><ErrorMessage name="password" /></div>
 
             <button type="submit">Submit</button>
-            <button type="button" onClick={props.toggle}>Close</button>
+            <button type="button" onClick={toggle}>Close</button>
           </Form>
         </Formik>
       </div>

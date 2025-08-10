@@ -1,19 +1,19 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import './assets/css/login.css';
+import '../assets/css/popup.css';
 
 export default function Contact(props) {
   return (
     <div className="popup">
       <div className="popup-inner">
         <Formik
-          initialValues={{ name: '', email: '', comment: '' }}
+          initialValues={{ name: '', contactEmail: '', comment: '' }}
           validationSchema={Yup.object({
             name: Yup.string()
               .max(50, 'Must be 50 characters or less')
               .required('Name is Required'),
-            email: Yup.string()
+            contactEmail: Yup.string()
               .email('Invalid email address')
               .required('Email is Required'),
             comment: Yup.string()
@@ -28,13 +28,19 @@ export default function Contact(props) {
           }}
         >
           <Form>
+            <h2>Contact CS</h2>
+            <hr />
             <label htmlFor="name">Your Name</label>
             <Field id="name" name="name" type="text" />
             <div><ErrorMessage name="name" /></div>
 
-            <label htmlFor="email">Email Address</label>
-            <Field id="email" name="email" type="email" />
-            <div><ErrorMessage name="email" /></div>
+            <label htmlFor="contactEmail">Email Address</label>
+            <Field id="contactEmail" name="contactEmail" type="email" />
+            <div><ErrorMessage name="contactEmail" /></div>
+
+            <label htmlFor="comment">Comment</label>
+            <Field id="comment" name="comment" as="textarea" />
+            <div><ErrorMessage name="comment" /></div>
 
             <button type="submit">Submit</button>
             <button type="button" onClick={props.toggle}>Close</button>

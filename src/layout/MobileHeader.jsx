@@ -21,11 +21,12 @@ export default function MobileHeader(props) {
 
   return (
     <>
-      <Header handleOpen={handleOpen} toggleLogin={props.toggleLogin} />
+      <Header handleOpen={handleOpen} toggleLogin={props.toggleLogin} toggleContact={props.toggleContact} />
       <nav className="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large"
         style={{ display: `${styled}` }} id="mySidebar">
         <a href="#!" onClick={handleClose} className="w3-bar-item w3-button w3-large">Close</a>
         <a href="#!" onClick={props.toggleLogin} className="w3-bar-item w3-button">Login</a>
+        <a href="#!" onClick={props.toggleContact} className="w3-bar-item w3-button">Contact</a>
       </nav>
     </>
   );
