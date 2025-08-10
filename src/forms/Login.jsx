@@ -20,7 +20,6 @@ export default function Login(props) {
   const handleBoundary = (e) => {
     if (divRef.current && !divRef.current.contains(e.target)) {
       //clicked outside the div
-      console.log('Clicked outside the div!');
       toggle();
     }
   };
