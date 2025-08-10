@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-//import '../assets/css/popup.css';
+import '../assets/css/popup.css';
 
 export default function Login(props) {
+  const { toggle } = props;
+  const divRef = useRef(null);
+
+  //attach listener for click outside of our dynamic div
+  useEffect(() => {
+    document.addEventListener('mousedown', handleBoundary);
+    return () => {
+      //cleanup
+      document.removeEventListener('mousedown', handleBoundary);
+    }
+  }, []);
+
+  const handleBoundary = (e) => {
+    if (divRef.current && !divRef.current.contains(e.target)) {
+      //clicked outside the div
+      toggle();
+    }
+  };
+
   return (
     <div className="popup">
       <div ref={divRef} className="popup-inner">
