@@ -1,26 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Layout from './layout/Layout';
-import Login from './forms/Login';
-import Header from './page/Header'
-import Contact from './forms/Contact';
+import PageImage from './page/PageImage'
 
 export default function App() {
-  const [showLogin, setShowLogin] = useState(false);
-  const [showContact, setShowContact] = useState(false);
-
-  function toggleLogin() {
-    setShowLogin(!showLogin);
-  };
-
-  function toggleContact() {
-    setShowContact(!showContact);
-  };
-
   return (
-    <Layout toggleLogin={toggleLogin} toggleContact={toggleContact}>
-      <Header />
-      {showLogin ? <Login toggle={toggleLogin} /> : null}
-      {showContact ? <Contact toggle={toggleContact} /> : null}
+    <Layout>
+      <PageImage />
     </Layout>
   )
 }

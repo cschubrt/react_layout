@@ -39,3 +39,16 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+img {
+  animation: fadeIn 2s ease-in-out;
+}

@@ -1,8 +1,8 @@
-import React from 'react';
 import pic from '../assets/mt.jpg';
 import '../assets/css/picture.css'
 
-const Header = () => {
+//page header
+const PageImage = () => {
   return (
     <div className="imgContainer">
       <img src={pic} alt="MT Mountains" style={{ width: '100vw', height: '60vh' }} />
@@ -11,4 +11,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default PageImage;
