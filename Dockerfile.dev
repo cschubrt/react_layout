@@ -1,0 +1,13 @@
+FROM node:20-alpine
+
+# Minimal dev image used by CI for running tests inside Docker.
+# The workflow builds this image, then runs: npm ci && npx vitest ...
+WORKDIR /app
+
+# Copy package metadata so the image context contains package.json (and package-lock.json if present)
+COPY package*.json ./
+
+# Don't install dependencies here. The CI runs `npm ci` inside a container based on
+# this image so that it can control installs (and obtain dev dependencies). Leave
+# the default command as a shell so CI can override the entrypoint and run commands.
+CMD ["sh"]

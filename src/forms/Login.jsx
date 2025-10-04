@@ -7,7 +7,7 @@ export default function Login(props) {
   const { toggle } = props;
   const divRef = useRef(null);
 
-  //attach listener for click outside of our dynamic div
+  //attach listener for click outside of div
   useEffect(() => {
     document.addEventListener('mousedown', handleBoundary);
     return () => {
